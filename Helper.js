@@ -28,7 +28,7 @@ class Helper {
     const card1Rank = rankConvert(card1.rank);
     const card2Rank = rankConvert(card2.rank);
     if (card1Rank === card2Rank
-      || (card1Rank > 10 || card2Rank > 10)
+      || (card1Rank > 12 || card2Rank > 12)
       || (card1.suit === card2.suit)) {
       return true;
     }
