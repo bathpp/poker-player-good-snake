@@ -1,6 +1,6 @@
 class Player {
   static get VERSION() {
-    return '0.5';
+    return '0.5.1';
   }
 
   checkSuit(cards) {
@@ -52,9 +52,11 @@ class Player {
 
   // }
   static betRequest(gameState, bet) {
-    const { players, current_buy_in, community_cards, minimum_raise } = gameState;
+    const { players, current_buy_in, community_cards, minimum_raise, in_action } = gameState;
     let betting = false;
-    const hole_cards = players.filter((p) => p.hole_cards.length > 0)[0].hole_cards;
+    const myPlayer = players[in_action];
+    const { hole_cards } = myPlayer;
+
     if (community_cards.length === 0) {
       if (hole_cards.length === 2) {
         betting = twoCardCheck(hole_cards);
