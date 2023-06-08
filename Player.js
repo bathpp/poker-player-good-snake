@@ -1,7 +1,7 @@
 const Helper = require('./Helper');
 class Player {
   static get VERSION() {
-    return '0.5.4';
+    return '0.5.5';
   }
 
   checkSuit(cards) {
@@ -41,7 +41,7 @@ class Player {
 
   // }
   static betRequest(gameState, bet) {
-    const { players, current_buy_in, community_cards, minimum_raise, in_action } = gameState;
+    const { players, current_buy_in, community_cards, minimum_raise, in_action, small_blind } = gameState;
     let betting = false;
     const myPlayer = players[in_action];
     const { hole_cards } = myPlayer;
