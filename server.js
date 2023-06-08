@@ -1,7 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const http = require('http');
-const axios = require('axios');
 
 const app = express();
 const port = parseInt((process.env.PORT || 1337), 10);
@@ -18,7 +17,7 @@ app.post('/', (req, res) => {
       res.send(Player.VERSION);
       break;
     case 'bet_request':
-      Player.betRequest(JSON.parse(game_state), function(bet) {
+      Player.betRequest(JSON.parse(game_state), function (bet) {
         res.json(bet);
       });
       break;
