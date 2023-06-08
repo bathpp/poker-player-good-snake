@@ -9,7 +9,8 @@ const Player = require('./Player');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.post('/', (req, res) => {
+
+app.post('/', async (req, res) => {
   const { action, game_state } = req.body;
 
   switch (action) {
@@ -17,7 +18,7 @@ app.post('/', (req, res) => {
       res.send(Player.VERSION);
       break;
     case 'bet_request':
-      Player.betRequest(JSON.parse(game_state), function (bet) {
+      await Player.betRequest(JSON.parse(game_state), function (bet) {
         res.json(bet);
       });
       break;
