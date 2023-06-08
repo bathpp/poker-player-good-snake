@@ -1,7 +1,7 @@
 const Helper = require('./Helper');
 class Player {
   static get VERSION() {
-    return '0.5.3';
+    return '0.5.4';
   }
 
   checkSuit(cards) {
