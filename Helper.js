@@ -35,29 +35,29 @@ class Helper {
     return false;
   }
 
-  static async fiveCardCheck(cards) {
-    try {
-      const data = await fetch('http://rainman.leanpoker.org/rank', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-          'Accept': 'application/json',
-        },
-        body: `cards=${JSON.stringify(cards)}`
-      })
+  // static async fiveCardCheck(cards) {
+  //   try {
+  //     const data = await fetch('http://rainman.leanpoker.org/rank', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/x-www-form-urlencoded',
+  //         'Accept': 'application/json',
+  //       },
+  //       body: `cards=${JSON.stringify(cards)}`
+  //     })
 
-      const ranks = await data.text();
-      const { rank } = JSON.parse(ranks);
-      if (rank >= 3) {
-        return true;
-      }
-      return false;
-    } catch (e) {
-      return false;
-    }
+  //     const ranks = await data.text();
+  //     const { rank } = JSON.parse(ranks);
+  //     if (rank >= 3) {
+  //       return true;
+  //     }
+  //     return false;
+  //   } catch (e) {
+  //     return false;
+  //   }
 
 
-  }
+  // }
 }
 
 module.exports = Helper;
