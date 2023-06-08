@@ -1,6 +1,7 @@
+const Helper = require('./Helper');
 class Player {
   static get VERSION() {
-    return '0.5.1';
+    return '0.5.2';
   }
 
   checkSuit(cards) {
@@ -25,19 +26,7 @@ class Player {
     return Number(rank);
   }
 
-  static twoCardCheck(cards) {
-    const [card1, card2] = cards;
-    // const { rank: card1Rank, value: card1Suit } = card1;
-    // const { rank: card2Rank, value: card2Suit } = card2;
-    const card1Rank = rankConvert(card1.rank);
-    const card2Rank = rankConvert(card2.rank);
-    if (card1Rank === card2Rank
-      || (card1Rank > 10 || card2Rank > 10)
-      || (card1.suit === card2.suit)) {
-      return true;
-    }
-    return false;
-  }
+
 
   // fiveCardCheck(cards) {
 
@@ -59,7 +48,7 @@ class Player {
 
     if (community_cards.length === 0) {
       if (hole_cards.length === 2) {
-        betting = twoCardCheck(hole_cards);
+        betting = Helper.twoCardCheck(hole_cards);
       }
       if (betting) {
         bet(current_buy_in + (minimum_raise * 2));
