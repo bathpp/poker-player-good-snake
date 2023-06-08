@@ -1,6 +1,6 @@
 class Player {
   static get VERSION() {
-    return '0.3';
+    return '0.4';
   }
 
   checkSuit(cards) {
@@ -14,12 +14,13 @@ class Player {
         suitCount[suit] = 1;
       }
     })
+    return suitCount;
   }
 
   valueConvert(value) {
     const faces = ['J', 'Q', 'K', 'A'];
     if (faces.includes(value)) {
-      return 10 + faces.indexOf(value)
+      return 11 + faces.indexOf(value)
     }
     return Number(value);
   }
