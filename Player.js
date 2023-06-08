@@ -45,6 +45,12 @@ class Player {
     let betting = false;
     const myPlayer = players[in_action];
     const { hole_cards } = myPlayer;
+    const { stack, bet: currentBet } = myPlayer;
+
+    if (stack < small_blind * 12) {
+      bet(stack);
+      return;
+    }
 
     if (community_cards.length === 0) {
       if (hole_cards.length === 2) {
