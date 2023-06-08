@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-app.post('/', async (req, res) => {
+app.post('/', (req, res) => {
   const { action, game_state } = req.body;
 
   switch (action) {
@@ -18,7 +18,7 @@ app.post('/', async (req, res) => {
       res.send(Player.VERSION);
       break;
     case 'bet_request':
-      await Player.betRequest(JSON.parse(game_state), function (bet) {
+      Player.betRequest(JSON.parse(game_state), function (bet) {
         res.json(bet);
       });
       break;
